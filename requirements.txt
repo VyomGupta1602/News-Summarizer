@@ -1,0 +1,4 @@
+nest_asyncio
+streamlit
+duckduckgo_search
+phi.tools

@@ -1,0 +1,69 @@
+Considerations before Chunking:
+1. Structure and length of docs
+2. Embedding Model
+3. Expected Queries
+4. LLM Context Window
+_______________________________
+
+Smaller Chunks:
+Ex: Single Sentence
+Accurate retrieval on granular queries
+Low Contextual information for Generation
+
+
+Larger Chunks:
+Ex: Full Page, multiple paragraphs
+Reduced effectiveness on granular queries
+Increases Contextual information for Generation
+
+
+High Context Length: quadratic Increase in time & memory [due to self attention layer of transformer]
+
+________________________________________
+
+Types of Chunking:
+
+1. Naive Chunking:
+
+-> based on developer set number of characters
+-> Sets chunk_size and chunk_overlap
+-> Fast and Efficient, but does not account for document structure
+
+a] Naive Sentence Splitting
+b] NLP driven Sentence Splitting: NLTK or SpaCy
+
+
+2. Recursive Character Text Splitting:
+
+-> Sets chunk_size and chunk_overlap
+-> Recursively splits chunks based on set chunks size and by text structure
+-> Paragraph("\n\n") -> Sentence("\n") -> Word(" ") -> Character("")
+
+
+3. Structural Chunking
+
+a] HTMLHeaderTextSplitter
+
+-> Splits "HTML Documents" based on header and underlying sections
+-> Tags Chunks with metadata specifying the header and subsections they belong to
+
+
+
+b] MarkdownHeaderTextSplitter
+
+-> Splits text based on Markdown Structure
+-> Tags Chunks with metadata specifying the headers they belong to
+
+________________________________
+
+
+4. Semantic Chunking
+
+
+- percentile(default) — In this method, all differences between sentences are calculated, and then any difference greater than the provided percentile is split.
+
+- standard deviation — In this method, any difference greater than provided standard deviations is split.
+
+- interquartile — In this method, the interquartile distance is used to split chunks.
+
+
