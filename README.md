@@ -1,0 +1,2 @@
+It selects a topic provided by the user and conducts a search for the most up-to-date news articles available on that subject. Once the search is complete, it compiles the key information from those articles into a concise summary, offering an overview of the latest developments related to the chosen topic.
+For video Output: https://drive.google.com/file/d/1Kax5Uc5pTA4oLvoSyVgYAyqpxzTQlKUq/view?usp=sharing
